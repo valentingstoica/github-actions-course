@@ -1,0 +1,12 @@
+name: 04-using-actions
+
+on: workflow_dispatch
+
+jobs:
+    checkout-code:
+        runs-on: ubuntu-latest
+        steps:
+            - name: Checkout Code
+              uses: actions/checkout@v7
+            - name: vv
+              run: ls -l -v
