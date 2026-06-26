@@ -3,11 +3,12 @@ name: 04-using-actions
 on: workflow_dispatch
 
 jobs:
-    checkout-code:
+    job-name:
         runs-on: ubuntu-latest
         steps:
-            - name: Checkout Code
-              uses: actions/checkout@v7
-            - name: vv
-              working-directory: 04-using-actions/react-app
-              run: ls -l -v
+            - uses: actions/checkout@v7
+            - uses: actions/setup-node@v6
+              with:
+                  node-version: 24
+            - working-directory: 04-using-actions/react-app
+              run: npm ci
