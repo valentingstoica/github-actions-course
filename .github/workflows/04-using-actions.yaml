@@ -3,12 +3,16 @@ name: 04-using-actions
 on: workflow_dispatch
 
 jobs:
-    job-name:
+    The_only_job:
         runs-on: ubuntu-latest
         steps:
             - uses: actions/checkout@v7
             - uses: actions/setup-node@v6
               with:
                   node-version: 24
-            - working-directory: 04-using-actions/react-app
+            - name: Install Dependencies
+              working-directory: 04-using-actions/react-app
               run: npm ci
+            - name: Run Tests
+              working-directory: 04-using-actions/react-app
+              run: npm run test
